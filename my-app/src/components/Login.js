@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { setAuthedUser } from '../actions/authedUser'
-import {link} from 'react-router-dom'
 
 
 class Login extends Component {
@@ -24,13 +23,13 @@ class Login extends Component {
                         ))}
 
                     </select>
-                    <Link to ='/'>
+                    <button>
                         submit
-                    </Link>
+                    </button>
                     </fieldset>
                     
                 </form>
-                
+                <br/>
 
             </div>
         )

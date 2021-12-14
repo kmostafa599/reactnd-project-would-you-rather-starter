@@ -2,6 +2,7 @@ import React,{Component} from 'react'
 import { connect } from 'react-redux';
 import Question from './Question';
 import Login from './Login';
+import NewQuestion from './NewQuestion';
 
 class Dashboard extends Component {
   render(){
@@ -17,6 +18,7 @@ class Dashboard extends Component {
     ))}
             
                              <Login/>       
+                             <NewQuestion/>
 
             
           </ul>

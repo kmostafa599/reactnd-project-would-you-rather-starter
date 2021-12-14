@@ -22,7 +22,11 @@ class Question extends Component {
                     <label>
                         <input type="checkbox" onChange={this.handleInputChange}/>
                         {this.props.question.optionTwo.text}
-                    </label>            
+                    </label>
+                    <br/>            
+                    <button onClick={this.handleInputChange}>
+                        Submit Answer
+                    </button>
                 </form>
                 <br/>
             </div>
