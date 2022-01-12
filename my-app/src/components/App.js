@@ -23,10 +23,11 @@ class App extends Component {
         <Route exact path="/">
         <Login/>
         </Route>
+        
         <Route path="/Dashboard" render={()=>(<Dashboard  />)}></Route>
         <Route path="/Answered Quesitons" render={()=>(<AnsweredQuestionsContainer/>)}></Route>
         <Route path="/Unanswered Quesitons" render={()=>(<UnansweredQuestionsContainer/>)}></Route>
-        <Route path="/NewQuestion" render={()=>(<NewQuestion/>)}></Route>
+        <Route path="/add" render={()=>(<NewQuestion/>)}></Route>
         <Route path="/Leaderboard" render={()=>(<LeaderBoard/>)}></Route>
         
         </div>

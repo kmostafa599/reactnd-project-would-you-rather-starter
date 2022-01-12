@@ -8,6 +8,8 @@ class Login extends Component {
     handleChange= (e)=>{ //arrow function to be able to use (this)
         e.preventDefault()
         const {dispatch} = this.props
+        
+        
         dispatch(setAuthedUser(e.target.value))
         
     }
@@ -17,12 +19,12 @@ class Login extends Component {
                 <form>
                     <fieldset>
                     <legend>Login</legend>
-                    <select value={this.props.authedUser
-                    } onChange={this.handleChange}>
+                    <select
+                     value={this.props.value}
+                     onChange={this.handleChange}>
                         {this.props.users.map(user=>(
-                            <option value={user}> {user} </option>
+                            <option value={user} > {user} </option>
                         ))}
-
                     </select>
                     <Link to ='/Dashboard'>
                         submit
@@ -38,7 +40,7 @@ class Login extends Component {
 }
 
 function mapStateToProps({authedUser,users}){
-    return {authedUser,
+    return {authedUser:JSON.stringify(authedUser),
         users:Object.keys(users)}
     
 }

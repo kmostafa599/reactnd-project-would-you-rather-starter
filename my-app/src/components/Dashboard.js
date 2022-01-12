@@ -9,31 +9,37 @@ import Nav from './Nav';
 class Dashboard extends Component {
   render(){
     console.log('questions:',this.props.questionsIds)
+    // eslint-disable-next-line no-lone-blocks
+    {if (this.props.authedUser === ''){return <Login/> }
     return (
-      <div>
+      
+      <div >
         <Nav/>
         <br/>
         <br/>
         Dashboard
-        <div id='Nav'>
+        <div id='Nav'style={{display:'flex',justifyContent:'center'}}>
         <Link to="/Answered Quesitons"><button>Answered Quesitons </button></Link>
         
         <Link to="/Unanswered Quesitons"><button>Unanswered Quesitons</button></Link>
         </div>
+        
 
 
 
       </div>
-    );
+  );
   }
-
+  }
 }
 
 function mapStateToProps(state){
   const {questions} = state
+  const {authedUser} = state
  return{
      questionsIds:Object.keys(questions).sort((a,b)=>questions[b].timestamp-questions[a].timestamp) ,//convert questions to array and sort them
- }
+     authedUser  
+    }
 }
 
 export default connect(mapStateToProps)(Dashboard);
