@@ -1,70 +1,68 @@
-import React, { Component } from 'react'
+import React, { Component, useState } from 'react'
 import { connect } from 'react-redux'
 import {formatQuestion} from '../utils/_DATA'
+import {handleSaveQuestionAnswer} from '../actions/questions'
 
-class Question extends Component {
-    handleInputChange(event) {
-        
-    }
-    render() {
-        const {id, timestamp, author, optionOne, optionTwo}= this.props.question
-        console.log("Question",this.props.question)
-        const handleInputChange = (e) =>{
+function Question(props) {
+    
+    
+        const {id, timestamp, author, optionOne, optionTwo}= props.question
+        console.log("Question",props.question)
+        const [option,setOption] = useState('')
+        // const handleInputChange = (e) =>{
+        //     e.preventDefault()
+        //     const target = e.target
+        //     const name = target.name
+        //     const value = target.value
+        //     alert(`${name} ${value}`)
+        // }
+
+        const submitHandler = (e)=>{
             e.preventDefault()
-            const target = e.target
-            const name = target.name
-            const value = target.value
-            alert(`${name} ${value}`)
+            console.log('THIS OPTION',option)
+            const {dispatch,authedUser} = props
+            dispatch(handleSaveQuestionAnswer({
+                qid:props.question.id,
+                answer: option,
+                authedUser
+
+
+            }))
         }
         return (
             <div>
                 <div>{//console.log("user in the component",this.props.user)
-                }{this.props.user.name}</div>
-                <form>
-                <select>
-                        <option value={this.props.question.optionOne.text}>{this.props.question.optionOne.text}</option>
-                        <option value={this.props.question.optionTwo.text}>{this.props.question.optionTwo.text}</option>
-                    </select>
-                    <input 
-                        
-                        type="radio"
-                        onChange={handleInputChange}
-                        id ='firstQuestion'
-                        value={this.props.question.optionOne.text}
-                        name={this.props.question.optionOne.text}
-                        checked={this.props.question.optionOne.text==this.props.question.optionOne.text}
-                    />  
-                    <label for="firstQuestion">{this.props.question.optionOne.text}</label>
+                }{props.user.name}</div>
+                <form onSubmit={submitHandler}>
+                <select value='optionOne' onChange={(e)=>setOption(e.target.value)}>
+                        <option value='optionOne'>{props.question.optionOne.text}</option>
+                       
                     <br/>
-
+                        <option value='optionTwo'>{props.question.optionTwo.text}</option>
+                    </select>
+                     
                     
-                    <input
-                        
-                        type="radio"
-                        onChange={handleInputChange}
-                        id='secondQuestion'
-                        value={this.props.question.optionTwo.text}
-                        name={this.props.question.optionTwo.text}
-                        checked={this.props.question.optionTwo.text==this.props.question.optionTwo.text}
-                    /> 
-                    <label for='secondQuestion'>{this.props.question.optionTwo.text}</label> 
+
+                
+                    
                     
                     <br/>       
-                    <button>Submit </button>    
+                    <input type="submit" />    
                 </form>
                 <br/>
             </div>
 
+
         )
-    }
+    
 }
 function mapStateToProps({users, questions, authedUser},{id}){
     console.log("Author: ",  users[questions[id].author])
     return{
 
         question:questions[id],
-        user:users[questions[id].author]
-       ,
+        user:users[questions[id].author],
+        authedUser
     }
 }
 export default connect(mapStateToProps)(Question)

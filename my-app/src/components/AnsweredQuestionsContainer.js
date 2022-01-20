@@ -13,6 +13,7 @@ class AnsweredQuestionsContainer extends Component {
                 <br/>
                 Answered Quesitons Container
                 <br/>
+                
                 Your Vote in yellow
 
                 <ul>

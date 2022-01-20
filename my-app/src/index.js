@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import middleware from './middleware';
 import combineReducers from './reducers/combineReducers';
 import {BrowserRouter as Router} from "react-router-dom";
+import '../node_modules/bootstrap/dist/css/bootstrap.css'
 
 const store = createStore(combineReducers,middleware)
 ReactDOM.render(

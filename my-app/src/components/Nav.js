@@ -21,13 +21,30 @@ class Nav extends React.Component {
             top:0
           };
         return (
-            <div style={{display:'flex',justifyContent:'center'}}> 
-               Hello, {this.props.authedUser}
-            <div><img src={users[authedUser].avatarURL} alt="user avatar"  style={circleStyle}/></div>
-            <Link to="/"><button>Logout</button></Link>
-            <Link to="/Dashboard"><button>Dashboard </button></Link>
-            <Link to="/add"><button>New Question </button></Link>
-            <Link to="/Leaderboard"><button>Leaderboard </button></Link>
+            <div > 
+
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+  <img src={users[authedUser].avatarURL} alt="user avatar" width="30" height="30" className="d-inline-block align-top" style={circleStyle}/>
+  </a>
+  Hello, {this.props.authedUser}
+           
+            
+            <Link className="nav-link" to="/Dashboard">Dashboard </Link>
+            <Link className="nav-link" to="/add">New Question </Link>
+            <Link className="nav-link" to="/Leaderboard">LeaderBoard</Link>
+            <Link className="nav-link" to="/">Logout</Link>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+    
+    
+  </div>
+</nav>
+
+               
+
+
+
             </div>
         )
     }

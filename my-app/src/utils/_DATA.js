@@ -115,6 +115,8 @@ let questions = {
   },
 }
 
+
+
 function generateUID () {
   return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
 }
@@ -133,6 +135,7 @@ export function _getQuestions () {
 
 export function formatQuestion ({ optionOneText, optionTwoText, author }) {
   console.log("helper function: ",author)
+  console.log(optionOneText)
   
   return {
     id: generateUID(),
@@ -150,6 +153,7 @@ export function formatQuestion ({ optionOneText, optionTwoText, author }) {
 }
 
 export function _saveQuestion (question) {
+  console.log(question)
   return new Promise((res, rej) => {
     const authedUser = question.author;
     const formattedQuestion = formatQuestion(question);
@@ -176,29 +180,45 @@ export function _saveQuestion (question) {
 export function _saveQuestionAnswer ({ authedUser, qid, answer }) {
   return new Promise((res, rej) => {
     setTimeout(() => {
-      users = {
-        ...users,
-        [authedUser]: {
-          ...users[authedUser],
-          answers: {
-            ...users[authedUser].answers,
-            [qid]: answer
-          }
-        }
-      }
+      // users = {
+      //   ...users,
+      //   [authedUser]: {
+      //     ...users[authedUser],
+      //     answers: {
+      //       ...users[authedUser].answers,
+      //       [qid]: answer
+      //     }
+      //   }
+      // }
 
-      questions = {
-        ...questions,
-        [qid]: {
-          ...questions[qid],
-          [answer]: {
-            ...questions[qid][answer],
-            votes: questions[qid][answer].votes.concat([authedUser])
-          }
-        }
-      }
+      // questions = {
+      //   ...questions,
+      //   [qid]: {
+      //     ...questions[qid],
+      //     [answer]: {
+      //       ...questions[qid][answer],
+      //       votes: questions[qid][answer].votes.concat([authedUser])
+      //     }
+      //   }
+      // }
 
       res()
     }, 500)
   })
 }
+//console.log(Object.keys(users).map((user)=>users[user].questions.length))
+var questionsArr = Object.keys(users).map((user)=>users[user].questions.length)
+
+//console.log(Object.keys(users).map((user)=>Object.keys(users[user].answers).length ))
+var answersArr = Object.keys(users).map((user)=>Object.keys(users[user].answers).length)
+
+var combined = [];
+questionsArr.map((a,index)=>combined.push(answersArr[index]+a))
+//console.log(combined)
+
+//question
+Object.keys(users).map((user,index)=> users[user].noOfAskedQuestions = questionsArr[index])
+//answers
+Object.keys(users).map((user,index)=> users[user].noOfQuestionsAnswered = answersArr[index])
+//rank
+Object.keys(users).map((user,index)=> users[user].rank = combined[index])

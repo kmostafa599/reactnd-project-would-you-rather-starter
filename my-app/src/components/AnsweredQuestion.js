@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import {formatQuestion} from '../utils/_DATA'
 import {LinearProgress} from '@mui/material'
 import { yellow } from '@mui/material/colors'
-
+import '@fortawesome/fontawesome-free/css/all.css'
 class Question extends Component {
     handleInputChange(event) {
         
@@ -39,7 +39,7 @@ class Question extends Component {
                     
                     <ul>
                         <li>
-                            <div style={users[authedUser].answers[question.id]==='optionOne'?yourVote:notYourVote}>
+                            <div style={users[authedUser].answers[question.id]==='optionOne'?yourVote:notYourVote} className={users[authedUser].answers[question.id]==='optionOne'?'fas fa-vote-yea':'fal fa-vote-yea'}>
                             <label  for="firstQuestion">{this.props.question.optionOne.text}</label>
                             <div>
                             <LinearProgress variant ="determinate" value={((question.optionOne.votes.length /3) *100).toFixed(1)} />
@@ -51,7 +51,7 @@ class Question extends Component {
                         </li>
                         <hr/>
                         <li>
-                        <div style={users[authedUser].answers[question.id]==='optionTwo'?yourVote:notYourVote}>
+                        <div style={users[authedUser].answers[question.id]==='optionTwo'?yourVote:notYourVote} className={users[authedUser].answers[question.id]==='optionTwo'?'fas fa-vote-yea':'fal fa-vote-yea'}>
                             <label for='secondQuestion'>{this.props.question.optionTwo.text}</label> 
                             <br/> 
                             <div>      
