@@ -22,8 +22,8 @@ class Login extends Component {
                     <select
                      value={this.props.value}
                      onChange={this.handleChange}>
-                        {this.props.users.map(user=>(
-                            <option value={user} > {user} </option>
+                        {this.props.users.map((user,i)=>(
+                            <option value={user} key={i} > {user} </option>
                         ))}
                     </select>
                     <Link to ='/Dashboard'>

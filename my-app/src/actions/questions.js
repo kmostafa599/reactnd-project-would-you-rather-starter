@@ -24,9 +24,10 @@ export function receiveQuestions(questions){
 export function saveQuesionAnswer({authedUser, qid, answer}){
     return {
         type: SAVE_QUESTION_ANSWER,
-        authedUser,
+        payload:
+        {authedUser,
         qid,
-        answer
+        answer}
     }
 }
 

@@ -1,12 +1,15 @@
 import React,{Component} from 'react'
 import { connect } from 'react-redux';
-import Question from './Question';
+//import Question from './Question';
 import Login from './Login';
 import { Link } from 'react-router-dom';
 import Nav from './Nav';
-
+//import { handleInitialData } from '../actions/shared'
+import QuestionPage from './QuestionPage'
 
 class Dashboard extends Component {
+  
+
   render(){
     console.log('questions:',this.props.questionsIds)
     // eslint-disable-next-line no-lone-blocks
@@ -23,7 +26,7 @@ class Dashboard extends Component {
         
         <Link to="/Unanswered Quesitons"><button>Unanswered Quesitons</button></Link>
         </div>
-        
+        <QuestionPage match={{params:{id:'6ni6ok3ym7mf1p33lnez'}}}/>
 
 
 

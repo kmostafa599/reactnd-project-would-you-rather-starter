@@ -1,13 +1,13 @@
-import React, { Component, useState } from 'react'
+import React, {  useState } from 'react'
 import { connect } from 'react-redux'
-import {formatQuestion} from '../utils/_DATA'
+//import {formatQuestion} from '../utils/_DATA'
 import {handleSaveQuestionAnswer} from '../actions/questions'
 
 function Question(props) {
     
     
-        const {id, timestamp, author, optionOne, optionTwo}= props.question
-        console.log("Question",props.question)
+        //const {id, timestamp, author, optionOne, optionTwo}= props.question
+        console.log("Question id",props.question.id)
         const [option,setOption] = useState('')
         // const handleInputChange = (e) =>{
         //     e.preventDefault()
@@ -23,8 +23,9 @@ function Question(props) {
             const {dispatch,authedUser} = props
             dispatch(handleSaveQuestionAnswer({
                 qid:props.question.id,
+                authedUser,
                 answer: option,
-                authedUser
+                
 
 
             }))

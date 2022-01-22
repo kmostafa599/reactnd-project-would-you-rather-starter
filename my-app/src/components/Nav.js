@@ -23,10 +23,10 @@ class Nav extends React.Component {
         return (
             <div > 
 
-<nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="#">
+<nav className="navbar navbar-light bg-light">
+  <div className="navbar-brand" >
   <img src={users[authedUser].avatarURL} alt="user avatar" width="30" height="30" className="d-inline-block align-top" style={circleStyle}/>
-  </a>
+  </div>
   Hello, {this.props.authedUser}
            
             
@@ -35,7 +35,7 @@ class Nav extends React.Component {
             <Link className="nav-link" to="/Leaderboard">LeaderBoard</Link>
             <Link className="nav-link" to="/">Logout</Link>
 
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div className="collapse navbar-collapse" id="navbarNav">
     
     
   </div>

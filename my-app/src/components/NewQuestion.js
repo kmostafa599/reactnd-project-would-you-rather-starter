@@ -1,13 +1,13 @@
 import React from 'react'
 import Nav from './Nav'
 import {connect} from 'react-redux'
-import {formatQuestion} from '../utils/_DATA'
+//import {formatQuestion} from '../utils/_DATA'
 import {useState} from 'react'
 import {handleSaveQuestion} from '../actions/questions' 
 
 
 function NewQuestion(props) {
-    const {users,authedUser} = props
+    //const {users,authedUser} = props
     const [optionOne,setOptionOne] = useState('')
     const [optionTwo,setOptionTwo] = useState('')
     const submitHandler = (e)=>{

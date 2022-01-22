@@ -206,19 +206,19 @@ export function _saveQuestionAnswer ({ authedUser, qid, answer }) {
     }, 500)
   })
 }
-//console.log(Object.keys(users).map((user)=>users[user].questions.length))
-var questionsArr = Object.keys(users).map((user)=>users[user].questions.length)
+// //console.log(Object.keys(users).map((user)=>users[user].questions.length))
+// var questionsArr = Object.keys(users).map((user)=>users[user].questions.length)
 
-//console.log(Object.keys(users).map((user)=>Object.keys(users[user].answers).length ))
-var answersArr = Object.keys(users).map((user)=>Object.keys(users[user].answers).length)
+// //console.log(Object.keys(users).map((user)=>Object.keys(users[user].answers).length ))
+// var answersArr = Object.keys(users).map((user)=>Object.keys(users[user].answers).length)
 
-var combined = [];
-questionsArr.map((a,index)=>combined.push(answersArr[index]+a))
-//console.log(combined)
+// var combined = [];
+// questionsArr.map((a,index)=>combined.push(answersArr[index]+a))
+// //console.log(combined)
 
-//question
-Object.keys(users).map((user,index)=> users[user].noOfAskedQuestions = questionsArr[index])
-//answers
-Object.keys(users).map((user,index)=> users[user].noOfQuestionsAnswered = answersArr[index])
-//rank
-Object.keys(users).map((user,index)=> users[user].rank = combined[index])
+// //question
+// Object.keys(users).map((user,index)=> users[user].noOfAskedQuestions = questionsArr[index])
+// //answers
+// Object.keys(users).map((user,index)=> users[user].noOfQuestionsAnswered = answersArr[index])
+// //rank
+// Object.keys(users).map((user,index)=> users[user].rank = combined[index])

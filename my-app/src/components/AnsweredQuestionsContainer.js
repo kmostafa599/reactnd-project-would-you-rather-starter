@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Nav from './Nav'
-import Question from './Question'
+//import Question from './Question'
 import AnsweredQuestion from './AnsweredQuestion'
 
 class AnsweredQuestionsContainer extends Component {

@@ -1,14 +1,25 @@
 import React from 'react'
 import Nav from './Nav'
 import { connect } from 'react-redux'
+import { setRank } from '../actions/users'
 
 
 
 function LeaderBoard(props) {
-    const {users,questions,authedUser,userRank}= props
+    const {users,userRank,dispatch }= props
     
-        
+    var questionsArr = Object.keys(users).map((user)=>users[user].questions.length)
+    var answersArr = Object.keys(users).map((user)=>Object.keys(users[user].answers).length)
+    var combined = [];
+    questionsArr.map((a,index)=>combined.push(answersArr[index]+a))
+    
+      Object.keys(users).map((user,index)=> dispatch(setRank({userId:user,
+        num:combined[index]
+      })))
+    
     return (
+      
+
         <div>
             <Nav/>
             <br/>
@@ -31,27 +42,7 @@ function LeaderBoard(props) {
             
             
 
-            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img class="d-block w-100" src="..." alt="First slide"/>
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="..." alt="Second slide"/>
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="..." alt="Third slide"/>
-    </div>
-  </div>
-  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
+            
         </div>
     )
 }
