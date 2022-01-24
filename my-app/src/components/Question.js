@@ -37,7 +37,7 @@ function Question(props) {
                 <select value={option} onChange={(e)=>setOption(e.target.value)}>
                         <option value='optionOne'>{props.question.optionOne.text}</option>
                        
-                    <br/>
+                    
                         <option value='optionTwo'>{props.question.optionTwo.text}</option>
                     </select>
                      
