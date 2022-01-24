@@ -1,5 +1,6 @@
 import React, {  useState } from 'react'
 import { connect } from 'react-redux'
+import { Link, Redirect } from 'react-router-dom'
 //import {formatQuestion} from '../utils/_DATA'
 import {handleSaveQuestionAnswer} from '../actions/questions'
 
@@ -9,6 +10,7 @@ function Question(props) {
         //const {id, timestamp, author, optionOne, optionTwo}= props.question
         console.log("Question id",props.question.id)
         const [option,setOption] = useState('')
+        const [flag,setFlag] = useState(false)
         // const handleInputChange = (e) =>{
         //     e.preventDefault()
         //     const target = e.target
@@ -21,6 +23,7 @@ function Question(props) {
             e.preventDefault()
             console.log('THIS OPTION',option)
             const {dispatch,authedUser} = props
+            setFlag(true)
             dispatch(handleSaveQuestionAnswer({
                 qid:props.question.id,
                 authedUser,
@@ -29,13 +32,15 @@ function Question(props) {
 
 
             }))
+            
         }
+        if(flag===true){return <Redirect to="/Dashboard"/>}
         return (
             <div>
                 <div>{//console.log("user in the component",this.props.user)
                 }{props.user.name}</div>
                 <form onSubmit={submitHandler}>
-                <select value='optionOne' onChange={(e)=>setOption(e.target.value)}>
+                <select value={option} onChange={(e)=>setOption(e.target.value)}>
                         <option value='optionOne'>{props.question.optionOne.text}</option>
                        
                     <br/>

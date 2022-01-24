@@ -9,6 +9,8 @@ import UnansweredQuestionsContainer from './UnansweredQuestionsContainer';
 import NewQuestion from './NewQuestion';
 import LeaderBoard from './LeaderBoard';
 import QuestionPage from './QuestionPage';
+import Question from './Question';
+import QuestionAsked from './QuestionAsked';
 //import Nav from './Nav';
 class App extends Component {
   componentDidMount(){
@@ -30,7 +32,9 @@ class App extends Component {
         <Route path="/Unanswered Quesitons" render={()=>(<UnansweredQuestionsContainer/>)}></Route>
         <Route path="/add" render={()=>(<NewQuestion/>)}></Route>
         <Route path="/Leaderboard" render={()=>(<LeaderBoard/>)}></Route>
-        
+        <Route path="/questions/:id" render={(props)=>(<QuestionPage {...props}/>)}></Route>
+        <Route path="/question/:id" render={(props)=>(<QuestionAsked {...props}/>)}></Route>
+
         </div>
     );
   }

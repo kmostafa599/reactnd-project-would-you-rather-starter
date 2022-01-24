@@ -1,4 +1,4 @@
-import React,{Component} from 'react'
+import React,{useState} from 'react'
 import { connect } from 'react-redux';
 //import Question from './Question';
 import Login from './Login';
@@ -6,34 +6,55 @@ import { Link } from 'react-router-dom';
 import Nav from './Nav';
 //import { handleInitialData } from '../actions/shared'
 import QuestionPage from './QuestionPage'
+import Tabs from 'react-bootstrap/Tabs'
+import Tab from 'react-bootstrap/Tab'
+import AnsweredQuestion from './AnsweredQuestion';
+import Question from './Question';
+import AnsweredQuestionsContainer from './AnsweredQuestionsContainer';
+import UnansweredQuestionsContainer from './UnansweredQuestionsContainer';
 
-class Dashboard extends Component {
+function Dashboard (props) {
   
 
-  render(){
-    console.log('questions:',this.props.questionsIds)
+  const [key, setKey] = useState('unansweredQuestions');
+
+    console.log('questions:',props.questionsIds)
     // eslint-disable-next-line no-lone-blocks
-    {if (this.props.authedUser === ''){return <Login/> }
+    {if (props.authedUser === ''){return <Login/> }
     return (
       
       <div >
         <Nav/>
         <br/>
         <br/>
-        Dashboard
-        <div id='Nav'style={{display:'flex',justifyContent:'center'}}>
-        <Link to="/Answered Quesitons"><button>Answered Quesitons </button></Link>
         
-        <Link to="/Unanswered Quesitons"><button>Unanswered Quesitons</button></Link>
-        </div>
-        <QuestionPage match={{params:{id:'6ni6ok3ym7mf1p33lnez'}}}/>
+  {/* <QuestionPage match={{params:{id:'xj352vofupe1dqz9emx13r'}}}/> */}
+        <Tabs
+      id="controlled-tab-example"
+      
+      activeKey={key}
+      onSelect={(k) => setKey(k)}
+      className="container mb-3"
+    >
+      <Tab eventKey="unansweredQuestions" title="Unanswered questions">
+        <UnansweredQuestionsContainer/>
+      </Tab>
+      <Tab eventKey="answeredQuestions" title="Answered questions">
+        <AnsweredQuestionsContainer/>
+      </Tab>
+    
+    </Tabs>
+        {/* Dashboard */}
+        
+        {//<QuestionPage match={{params:{id:'6ni6ok3ym7mf1p33lnez'}}}/>
+        }
 
 
 
       </div>
   );
   }
-  }
+  
 }
 
 function mapStateToProps(state){

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Question from './Question'
 import { connect } from 'react-redux'
 import Nav from './Nav'
+import { Link } from 'react-router-dom'
 
 
 class UnansweredQuestionsContainer extends Component {
@@ -11,14 +12,18 @@ class UnansweredQuestionsContainer extends Component {
         console.log('Not Answered',notAnswered)
         return (
             <div>
-                <Nav/>
+                
                 <br/>
-                Unanswered Quesitons container
+                {//Unanswered Quesitons container
+    }
                 <ul>
             {notAnswered.map(id=>(
               <li key={id}>
-                  
-                <Question id={id}/>
+                  {this.props.questions[id].optionOne.text}
+                  <br/>
+                  {this.props.questions[id].optionTwo.text}
+                <Link to={`question/${id}`}>Answer</Link>
+                {/* <Question id={id}/> */}
               </li>
     ))}
             

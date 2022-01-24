@@ -3,25 +3,32 @@ import { connect } from 'react-redux'
 import Nav from './Nav'
 //import Question from './Question'
 import AnsweredQuestion from './AnsweredQuestion'
+import {Link} from 'react-router-dom'
 
 class AnsweredQuestionsContainer extends Component {
     render() {
-        const {users,authedUser}=this.props
+        const {users,authedUser,questions}=this.props
         return (
             <div>
-                <Nav/>
+                
                 <br/>
-                Answered Quesitons Container
+                {//Answered Quesitons Container
+                }
                 <br/>
                 
-                Your Vote in yellow
+                {/* Your Vote in yellow */}
 
                 <ul>
             {Object.keys(users[authedUser].answers).map(id=>(
               <li key={id}>
                   
-                <AnsweredQuestion id={id}/>
+                  <label  for="firstQuestion">{questions[id].optionOne.text}</label>
+                  <br/>
+                  <label for='secondQuestion'>{questions[id].optionTwo.text}</label> 
+                  <Link to={`/questions/${id}`}>Results</Link>
+                  <br/>
               </li>
+              
     ))}
             
                                     
@@ -38,7 +45,9 @@ function mapStateToProps(state){
     return{
         questionsIds:Object.keys(questions).sort((a,b)=>questions[b].timestamp-questions[a].timestamp) ,//convert questions to array and sort them
         users,
-        authedUser
+        authedUser,
+        questions,
+        
     }
 
 }

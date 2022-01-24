@@ -1,22 +1,25 @@
 import React from 'react'
 import Nav from './Nav'
 import {connect} from 'react-redux'
-//import {formatQuestion} from '../utils/_DATA'
 import {useState} from 'react'
 import {handleSaveQuestion} from '../actions/questions' 
+import { Redirect } from 'react-router-dom'
 
 
 function NewQuestion(props) {
     //const {users,authedUser} = props
     const [optionOne,setOptionOne] = useState('')
     const [optionTwo,setOptionTwo] = useState('')
+    const [flag,setFlag] = useState(false)
     const submitHandler = (e)=>{
         e.preventDefault()
         const {dispatch} = props
         dispatch(handleSaveQuestion(optionOne,optionTwo))
         setOptionOne('')
         setOptionTwo('')
+        setFlag(true)
     }
+    if(flag===true){return <Redirect to="/Dashboard"/>}
     return (
         <div>
             <Nav/>
