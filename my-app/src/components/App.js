@@ -9,7 +9,7 @@ import UnansweredQuestionsContainer from './UnansweredQuestionsContainer';
 import NewQuestion from './NewQuestion';
 import LeaderBoard from './LeaderBoard';
 import QuestionPage from './QuestionPage';
-import Question from './Question';
+//import Question from './Question';
 import QuestionAsked from './QuestionAsked';
 //import Nav from './Nav';
 class App extends Component {

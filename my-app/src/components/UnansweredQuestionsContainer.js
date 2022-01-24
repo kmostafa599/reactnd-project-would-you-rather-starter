@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import Question from './Question'
+//import Question from './Question'
 import { connect } from 'react-redux'
-import Nav from './Nav'
+//import Nav from './Nav'
 import { Link } from 'react-router-dom'
 
 

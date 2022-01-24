@@ -1,15 +1,9 @@
 import React,{useState} from 'react'
 import { connect } from 'react-redux';
-//import Question from './Question';
 import Login from './Login';
-import { Link } from 'react-router-dom';
 import Nav from './Nav';
-//import { handleInitialData } from '../actions/shared'
-import QuestionPage from './QuestionPage'
 import Tabs from 'react-bootstrap/Tabs'
 import Tab from 'react-bootstrap/Tab'
-import AnsweredQuestion from './AnsweredQuestion';
-import Question from './Question';
 import AnsweredQuestionsContainer from './AnsweredQuestionsContainer';
 import UnansweredQuestionsContainer from './UnansweredQuestionsContainer';
 

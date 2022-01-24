@@ -1,6 +1,6 @@
 import React, {  useState } from 'react'
 import { connect } from 'react-redux'
-import { Link, Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 //import {formatQuestion} from '../utils/_DATA'
 import {handleSaveQuestionAnswer} from '../actions/questions'
 
@@ -11,13 +11,7 @@ function Question(props) {
         console.log("Question id",props.question.id)
         const [option,setOption] = useState('')
         const [flag,setFlag] = useState(false)
-        // const handleInputChange = (e) =>{
-        //     e.preventDefault()
-        //     const target = e.target
-        //     const name = target.name
-        //     const value = target.value
-        //     alert(`${name} ${value}`)
-        // }
+       
 
         const submitHandler = (e)=>{
             e.preventDefault()

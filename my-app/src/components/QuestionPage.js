@@ -25,12 +25,8 @@ class Questionpage extends Component {
 
 function mapSateToProps({authedUser,questions,users},props){
     //const {id} = props.match.params
-    var allVotes =[]
-    //allVotes.push(questions[id].optionOne.votes)
-    //allVotes.push(questions[id].optionTwo.votes)
+    
     return{
-       // id,
-        //votes:allVotes
         questions
 
     }

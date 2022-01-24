@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Nav from './Nav'
-//import Question from './Question'
-import AnsweredQuestion from './AnsweredQuestion'
 import {Link} from 'react-router-dom'
 
 class AnsweredQuestionsContainer extends Component {
@@ -22,9 +19,9 @@ class AnsweredQuestionsContainer extends Component {
             {Object.keys(users[authedUser].answers).map(id=>(
               <li key={id}>
                   
-                  <label  for="firstQuestion">{questions[id].optionOne.text}</label>
+                  <label  htmlFor="firstQuestion">{questions[id].optionOne.text}</label>
                   <br/>
-                  <label for='secondQuestion'>{questions[id].optionTwo.text}</label> 
+                  <label htmlFor='secondQuestion'>{questions[id].optionTwo.text}</label> 
                   <Link to={`/questions/${id}`}>Results</Link>
                   <br/>
               </li>

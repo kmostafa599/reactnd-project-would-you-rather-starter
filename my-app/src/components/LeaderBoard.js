@@ -27,7 +27,7 @@ function LeaderBoard(props) {
             <ul>
                 {userRank.map((r,index)=>(
                     
-                    <li>{r}:
+                    <li key={index}>{r}:
                     <img src={users[r].avatarURL} alt=''/>
                         <br/>
                         Score: {combined[index]}
