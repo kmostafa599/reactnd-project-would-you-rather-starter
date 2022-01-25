@@ -11,6 +11,7 @@ export function questions(state={},action){
             }
         case SAVE_QUESTION_ANSWER:
           const {authedUser,qid,answer} = action.payload
+          console.log(state[qid][answer].votes.concat([authedUser]))
             return{
                 ...state,
                 

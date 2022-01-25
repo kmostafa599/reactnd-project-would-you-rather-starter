@@ -33,9 +33,9 @@ class Question extends Component {
                     <ul>
                         <li>
                             <div style={users[authedUser].answers[question.id]==='optionOne'?yourVote:notYourVote} className={users[authedUser].answers[question.id]==='optionOne'?'fas fa-vote-yea':'fal fa-vote-yea'}>
-                            <label  for="firstQuestion">{this.props.question.optionOne.text}</label>
+                            <label  htmlFor="firstQuestion">{this.props.question.optionOne.text}</label>
                             <div>
-                            <LinearProgress variant ="determinate" value={((question.optionOne.votes.length /3) *100).toFixed(1)} />
+                            <LinearProgress variant ="determinate" value={parseInt(((question.optionOne.votes.length /3) *100).toFixed(1))} />
                                 {`${((question.optionOne.votes.length /3) *100).toFixed(1)}%`}<br/>
                                 {`${question.optionOne.votes.length } out of 3`}
                                 
@@ -45,10 +45,10 @@ class Question extends Component {
                         <hr/>
                         <li>
                         <div style={users[authedUser].answers[question.id]==='optionTwo'?yourVote:notYourVote} className={users[authedUser].answers[question.id]==='optionTwo'?'fas fa-vote-yea':'fal fa-vote-yea'}>
-                            <label for='secondQuestion'>{this.props.question.optionTwo.text}</label> 
+                            <label htmlFor='secondQuestion'>{this.props.question.optionTwo.text}</label> 
                             <br/> 
                             <div>      
-                            <LinearProgress variant ="determinate" value={((question.optionTwo.votes.length /3) *100).toFixed(1)} />
+                            <LinearProgress variant ="determinate" value={parseInt(((question.optionTwo.votes.length /3) *100).toFixed(1))} />
                                 {`${((question.optionTwo.votes.length /3) *100).toFixed(1)}%`}<br/>
                                 {`${question.optionTwo.votes.length } out of 3`}
                             </div> 

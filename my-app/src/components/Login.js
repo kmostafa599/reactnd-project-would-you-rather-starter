@@ -1,28 +1,29 @@
-import React, { Component } from 'react'
+import React ,{useState}from 'react'
 import { connect } from 'react-redux'
 import { setAuthedUser } from '../actions/authedUser'
 import {Link} from 'react-router-dom'
 
 
-class Login extends Component {
-    handleChange= (e)=>{ //arrow function to be able to use (this)
+function Login (props){
+    const [option,setOption] = useState(props.authedUser)
+    const handleChange= (e)=>{ 
         e.preventDefault()
-        const {dispatch} = this.props
+        const {dispatch} = props
         
         
         dispatch(setAuthedUser(e.target.value))
-        
+        setOption(e.target.value)
     }
-    render() {
+    
         return (
             <div>
                 <form>
                     <fieldset>
                     <legend>Login</legend>
                     <select
-                     value={this.props.authedUser}
-                     onChange={this.handleChange}>
-                        {this.props.users.map((user,i)=>(
+                     value={option}
+                     onChange={handleChange}>
+                        {props.users.map((user,i)=>(
                             <option value={user} key={i} > {user} </option>
                         ))}
                     </select>
@@ -36,7 +37,7 @@ class Login extends Component {
 
             </div>
         )
-    }
+    
 }
 
 function mapStateToProps({authedUser,users}){

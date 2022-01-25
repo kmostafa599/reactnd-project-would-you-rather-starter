@@ -9,7 +9,7 @@ function Question(props) {
     
         //const {id, timestamp, author, optionOne, optionTwo}= props.question
         console.log("Question id",props.question.id)
-        const [option,setOption] = useState('')
+        const [option,setOption] = useState('optionOne')
         const [flag,setFlag] = useState(false)
        
 
@@ -33,19 +33,20 @@ function Question(props) {
             <div>
                 <div>{//console.log("user in the component",this.props.user)
                 }{props.user.name}</div>
+                <div><img src={props.user.avatarURL} alt=''/></div>
+                Would you Rather?
                 <form onSubmit={submitHandler}>
-                <select value={option} onChange={(e)=>setOption(e.target.value)}>
-                        <option value='optionOne'>{props.question.optionOne.text}</option>
-                       
-                    
-                        <option value='optionTwo'>{props.question.optionTwo.text}</option>
-                    </select>
-                     
-                    
-
-                
-                    
-                    
+                {/* <select value={option} onChange={(e)=>setOption(e.target.value)}> */}
+                <div >
+                        <input type='radio'  value='optionOne' onChange={(e)=>{setOption(e.target.value);}} checked={option==='optionOne'}/>
+                        <label htmlFor='optionOne'>{props.question.optionTwo.text}</label> 
+                        {/* {props.question.optionOne.text} */}
+                        <br/>
+                        <input type='radio'  value='optionTwo' onChange={(e)=>{setOption(e.target.value);}} checked={option==='optionTwo'}/>
+                        <label htmlFor='optionTwo'>{props.question.optionTwo.text}</label> 
+                        {/* {props.question.optionTwo.text} */}
+                    {/* </select> */}
+                    </div>
                     <br/>       
                     <input type="submit" />    
                 </form>

@@ -31,9 +31,9 @@ class App extends Component {
         <Route path="/Answered Quesitons" render={()=>(<AnsweredQuestionsContainer/>)}></Route>
         <Route path="/Unanswered Quesitons" render={()=>(<UnansweredQuestionsContainer/>)}></Route>
         <Route path="/add" render={()=>(<NewQuestion/>)}></Route>
-        <Route path="/Leaderboard" render={()=>(<LeaderBoard/>)}></Route>
-        <Route path="/questions/:id" render={(props)=>(<QuestionPage {...props}/>)}></Route>
-        <Route path="/question/:id" render={(props)=>(<QuestionAsked {...props}/>)}></Route>
+        <Route path="/leaderboard" render={()=>(<LeaderBoard/>)}></Route>
+        <Route path="/question/:id" render={(props)=>(<QuestionPage {...props}/>)}></Route>
+        <Route path="/questions/:id" render={(props)=>(<QuestionAsked {...props}/>)}></Route>
 
         </div>
     );

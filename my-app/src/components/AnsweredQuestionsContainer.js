@@ -22,7 +22,7 @@ class AnsweredQuestionsContainer extends Component {
                   <label  htmlFor="firstQuestion">{questions[id].optionOne.text}</label>
                   <br/>
                   <label htmlFor='secondQuestion'>{questions[id].optionTwo.text}</label> 
-                  <Link to={`/questions/${id}`}>Results</Link>
+                  <Link to={`/question/${id}`}>Results</Link>
                   <br/>
               </li>
               

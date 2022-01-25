@@ -22,7 +22,7 @@ class UnansweredQuestionsContainer extends Component {
                   {this.props.questions[id].optionOne.text}
                   <br/>
                   {this.props.questions[id].optionTwo.text}
-                <Link to={`question/${id}`}>Answer</Link>
+                <Link to={`questions/${id}`}>Answer</Link>
                 {/* <Question id={id}/> */}
               </li>
     ))}
