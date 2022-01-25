@@ -20,7 +20,7 @@ class Login extends Component {
                     <fieldset>
                     <legend>Login</legend>
                     <select
-                     value={this.props.value}
+                     value={this.props.authedUser}
                      onChange={this.handleChange}>
                         {this.props.users.map((user,i)=>(
                             <option value={user} key={i} > {user} </option>
