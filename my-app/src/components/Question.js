@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 //import {formatQuestion} from '../utils/_DATA'
 import {handleSaveQuestionAnswer} from '../actions/questions'
+import Nav from './Nav'
 
 function Question(props) {
     
@@ -31,6 +32,7 @@ function Question(props) {
         if(flag===true){return <Redirect to="/Dashboard"/>}
         return (
             <div>
+                <Nav/>
                 <div>{//console.log("user in the component",this.props.user)
                 }{props.user.name}</div>
                 <div><img src={props.user.avatarURL} alt=''/></div>
@@ -39,7 +41,7 @@ function Question(props) {
                 {/* <select value={option} onChange={(e)=>setOption(e.target.value)}> */}
                 <div >
                         <input type='radio'  value='optionOne' onChange={(e)=>{setOption(e.target.value);}} checked={option==='optionOne'}/>
-                        <label htmlFor='optionOne'>{props.question.optionTwo.text}</label> 
+                        <label htmlFor='optionOne'>{props.question.optionOne.text}</label> 
                         {/* {props.question.optionOne.text} */}
                         <br/>
                         <input type='radio'  value='optionTwo' onChange={(e)=>{setOption(e.target.value);}} checked={option==='optionTwo'}/>

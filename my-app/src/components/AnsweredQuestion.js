@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import {LinearProgress} from '@mui/material'
 import '@fortawesome/fontawesome-free/css/all.css'
+import Nav from './Nav'
 
 class Question extends Component {
     handleInputChange(event) {
@@ -20,6 +21,11 @@ class Question extends Component {
         }
         return (
             <div >
+                <Nav/>
+                <br/>
+                Your Answer in Yellow
+                <br/>
+                <br/>
                 <fieldset>
                 <legend>{//console.log("user in the component",this.props.user)
                 }{this.props.user.name}</legend>

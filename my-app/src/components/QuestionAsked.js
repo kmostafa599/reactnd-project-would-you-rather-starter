@@ -1,13 +1,29 @@
 import React, { Component } from 'react'
+import ErrorPage from './ErrorPage'
 import Question from './Question'
+import {connect} from 'react-redux'
 
-export default class QuestionAsked extends Component {
+class QuestionAsked extends Component {
     render() {
         console.log("params: ",this.props.match.params.id)
         return (
             <div>
-                <Question id={this.props.match.params.id}/>
+                {this.props.questions.hasOwnProperty(this.props.match.params.id) ?
+                <Question id={this.props.match.params.id}/>:
+                <ErrorPage/>
+    }
             </div>
         )
     }
 }
+
+
+function mapSateToProps({authedUser,questions,users},props){
+    //const {id} = props.match.params
+    
+    return{
+        questions
+
+    }
+}
+export default connect(mapSateToProps)(QuestionAsked)
